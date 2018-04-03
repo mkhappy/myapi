@@ -1,0 +1,16 @@
+#my config
+conf/config.ini
+nohup.out
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# python
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
