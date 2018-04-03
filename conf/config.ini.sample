@@ -1,0 +1,11 @@
+[database]
+DBNAME = xxxx
+DBHOST = 10.0.0.1
+DBUSER = xxxx
+DBPASS = xxxx
+DBPORT = 3306
+
+#### qcloud settings
+[secret]
+SECRET_ID = xxxx
+SECRET_KEY = xxxx

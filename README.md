@@ -1,4 +1,4 @@
-
+# required step
 apt-get update
 
 apt-get install vim wget -y
@@ -11,4 +11,5 @@ apt-get install libmysqlclient-dev
 
 apt-get install python-dev
 
-pip install MySQL-python
+apt-get install libxslt-dev
+
