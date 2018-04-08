@@ -16,7 +16,7 @@ from rest_framework import status
 
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 from QcloudApi.qcloudapi import QcloudApi
 import json
@@ -36,20 +36,11 @@ config = {
         'secretKey': settings.SECRET_KEY,}
 
 
-def my404(request):
-    resp = {u'code': 404, u'message': 'null'}
-    return HttpResponse(json.dumps(resp), content_type="application/json")
+#def my404(request):
+#    resp = {u'code': 404, u'message': 'null'}
+#    return HttpResponse(json.dumps(resp), content_type="application/json")
 
-# class SensViewSet(viewsets.ModelViewSet):
 class SensView(APIView):
-   # def get(self, request, pk):
-   #     try:
-   #         sens = SensMod.objects.get(pk=pk)
-   #     except SensMod.DoesNotExist:
-   #         return Response(status=status.HTTP_404_NOT_FOUND)
-   #     serializer = SensModSerializer(sens)
-   #     return Response(serializer.data)
-
     def post(self, request):
         if u'content' and u'type' in request.data: 
             r_content = request.data[u'content']
@@ -63,8 +54,8 @@ class SensView(APIView):
                     # print '--------------result_data:', result_data
                 except Exception, e:
                     print '----------exception:', e
-                    # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-                    return my404(request)
+                    return Response({u'code': 400, u'message': 'null'}, status=status.HTTP_400_BAD_REQUEST)
+                    # return my404(request)
                 result_data[u'content'] = r_content
                 result_data[u'type']    = r_type
                 # fixed message with None text 
@@ -82,7 +73,9 @@ class SensView(APIView):
                 if serializer.is_valid():
                     serializer.save()
                     return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return my404(request)
+                else:
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({u'code': 400, u'message': 'null'}, status=status.HTTP_400_BAD_REQUEST)
 
     @csrf_exempt
     def dispatch(self, *args, **kwargs):

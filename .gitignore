@@ -1,6 +1,8 @@
 #my config
 conf/config.ini
 nohup.out
+*.log
+*.pid
 
 # Windows:
 Thumbs.db

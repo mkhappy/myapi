@@ -30,7 +30,8 @@ myconf.read(BASE_DIR + os.sep + "conf" + os.sep + "config.ini")
 SECRET_KEY = 'wgqj(63((i__qif)v89*u(4a%=1=rpjqa4@q#$xock(!y)d(uy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ["*"]
@@ -140,6 +141,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 静态文件“收集”目录 python manage.py collectstatic
 
 # djang rest framework settings
 REST_FRAMEWORK = {
