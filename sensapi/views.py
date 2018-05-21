@@ -32,8 +32,8 @@ action = 'TextSensitivity'
 region = 'sh'
 config = {
         'Region': region,
-        'secretId': settings.SECRET_ID,
-        'secretKey': settings.SECRET_KEY,}
+        'secretId': settings.QCLOUD_SECRET_ID,
+        'secretKey': settings.QCLOUD_SECRET_KEY,}
 
 
 #def my404(request):

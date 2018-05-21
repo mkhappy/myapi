@@ -157,6 +157,6 @@ REST_FRAMEWORK = {
 }
 
 ## QCLOUD获取配置
-SECRET_ID = myconf.get("secret", "SECRET_ID")
-SECRET_KEY = myconf.get("secret", "SECRET_KEY")
+QCLOUD_SECRET_ID = myconf.get("secret", "SECRET_ID")
+QCLOUD_SECRET_KEY = myconf.get("secret", "SECRET_KEY")
 
